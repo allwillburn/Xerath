@@ -250,7 +250,7 @@ OnTick(function (myHero)
                        if RPred.hitChance > (XerathMenu.KillSteal.Rpred:Value() * 0.1) then
                                  CastTargetSpell(RPred.castPos, _R)
                        end
-end
+
                 end
 
       end

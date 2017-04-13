@@ -143,7 +143,7 @@ OnTick(function (myHero)
             end
 
             if XerathMenu.Combo.E:Value() and Ready(_E) and ValidTarget(target, 1280) then
-			 CastSkillShot(_E, enemy)
+			 CastSkillShot(_E, target.pos)
 	    end
 
             if XerathMenu.Combo.W:Value() and Ready(_W) and ValidTarget(target, 650) then
@@ -233,7 +233,7 @@ OnTick(function (myHero)
                 end	
 			
 			if IsReady(_E) and ValidTarget(enemy, 325) and XerathMenu.KillSteal.E:Value() and GetHP(enemy) < getdmg("E",enemy) then
-		                        CastSkillShot(_E, enemy)
+		                       CastSkillShot(_E, target.pos)
                 end
                                
                 if IsReady(_R) and ValidTarget(enemy, 6160) and XerathMenu.KillSteal.R:Value() and GetHP(enemy) < getdmg("R",enemy) then
@@ -278,7 +278,7 @@ OnTick(function (myHero)
         end
         if XerathMenu.AutoMode.E:Value() then        
 	  if Ready(_E) and ValidTarget(target, 1280) then
-		      CastSkillShot(_E, enemy)
+		      CastSkillShot(_E, target.pos)
 	  end
         end
         if XerathMenu.AutoMode.R:Value() then        

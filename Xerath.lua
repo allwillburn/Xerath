@@ -246,7 +246,7 @@ OnTick(function (myHero)
                 end
                                
                 if IsReady(_R) and ValidTarget(enemy, 6160) and XerathMenu.KillSteal.R:Value() and GetHP(enemy) < getdmg("R",enemy) then
-		                        local QPred = GetPrediction(target,XerathR)
+		                        local RPred = GetPrediction(target,XerathR)
                        if RPred.hitChance > (XerathMenu.KillSteal.Rpred:Value() * 0.1) then
                                  CastTargetSpell(RPred.castPos, _R)
                        end

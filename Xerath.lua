@@ -152,7 +152,13 @@ OnTick(function (myHero)
 			   				    
             if XerathMenu.Combo.AA:Value() and ValidTarget(target, 125) then
                          AttackUnit(target)
-            end		
+            end	
+			
+	    if XerathMenu.Combo.Q:Value() and Ready(_Q) and ValidTarget(target, 750) then
+		     if target ~= nil then 
+                         CastSkillShot(_Q, target)
+                     end
+            end	
 			
             if XerathMenu.Combo.Q:Value() and Ready(_Q) and ValidTarget(target, 750) then
 		     if target ~= nil then 

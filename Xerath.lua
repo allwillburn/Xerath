@@ -11,7 +11,7 @@ end
 
 if GetObjectName(GetMyHero()) ~= "Xerath" then return end
 
-
+require("OpenPredict")
 require("DamageLib")
 
 function AutoUpdate(data)
@@ -29,6 +29,8 @@ GetWebResultAsync("https://raw.githubusercontent.com/allwillburn/Xerath/master/X
 
 GetLevelPoints = function(unit) return GetLevel(unit) - (GetCastLevel(unit,0)+GetCastLevel(unit,1)+GetCastLevel(unit,2)+GetCastLevel(unit,3)) end
 local SetDCP, SkinChanger = 0
+
+local XerathR = {delay = .5, range = 6000, width = 250, speed = 1200}
 
 local XerathMenu = Menu("Xerath", "Xerath")
 
@@ -74,6 +76,7 @@ XerathMenu:SubMenu("KillSteal", "KillSteal")
 XerathMenu.KillSteal:Boolean("Q", "KS w Q", true)
 XerathMenu.KillSteal:Boolean("E", "KS w E", true)
 XerathMenu.KillSteal:Boolean("R", "KS w R", true)
+XerathMenu.KillSteal:Slider("Rpred", "R Hit Chance", 3,0,10,1)
 XerathMenu.KillSteal:Boolean("W", "KS w W", true)
 
 XerathMenu:SubMenu("AutoIgnite", "AutoIgnite")
@@ -243,7 +246,11 @@ OnTick(function (myHero)
                 end
                                
                 if IsReady(_R) and ValidTarget(enemy, 6160) and XerathMenu.KillSteal.R:Value() and GetHP(enemy) < getdmg("R",enemy) then
-		                        CastTargetSpell(target, _R)
+		                        local QPred = GetPrediction(target,XerathR)
+                       if RPred.hitChance > (XerathMenu.KillSteal.Rpred:Value() * 0.1) then
+                                 CastTargetSpell(RPred.castPos, _R)
+                       end
+end
                 end
 
       end

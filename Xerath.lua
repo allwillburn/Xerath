@@ -109,7 +109,7 @@ OnTick(function (myHero)
 			end
 	end
 		
-		if KeyIsDown(K) then
+		if KeyIsDown(75) then
 			if IsReady(_R) and ValidTarget(enemy, 6160) then
 		                        local RPred = GetPrediction(target,XerathR)
                        if RPred.hitChance > (XerathMenu.KillSteal.Rpred:Value() * 0.1) then

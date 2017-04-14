@@ -258,6 +258,10 @@ OnTick(function (myHero)
       if Mix:Mode() == "LaneClear" then
       	  for _,closeminion in pairs(minionManager.objects) do
 	        if XerathMenu.LaneClear.Q:Value() and Ready(_Q) and ValidTarget(closeminion, 750) then
+	        	CastSkillShot(_Q, closeminion)
+                end	
+				
+	        if XerathMenu.LaneClear.Q:Value() and Ready(_Q) and ValidTarget(closeminion, 750) then
 	        	CastSkillShot2(_Q, closeminion)
                 end
 

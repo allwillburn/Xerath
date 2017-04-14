@@ -108,6 +108,17 @@ OnTick(function (myHero)
 				LevelSpell(spellorder[GetLevel(myHero) + 1 - GetLevelPoints(myHero)])
 			end
 	end
+		
+		if KeyIsDown(K) then
+			if IsReady(_R) and ValidTarget(enemy, 6160) then
+		                        local RPred = GetPrediction(target,XerathR)
+                       if RPred.hitChance > (XerathMenu.KillSteal.Rpred:Value() * 0.1) then
+                                 CastTargetSpell(RPred.castPos, _R)
+                       end
+
+                end
+
+      end
         
         --Harass
           if Mix:Mode() == "Harass" then
